@@ -97,6 +97,7 @@ CREATE TABLE IF NOT EXISTS Pedido (
 CREATE TABLE IF NOT EXISTS DetallePedidoProducto (
     id_detallePedidoProducto INT PRIMARY KEY,
     descripcion VARCHAR(255),
+    cantidad INT,
     id_pedido INT,
     id_producto INT,
     CONSTRAINT fk_pedido_detalle FOREIGN KEY (id_pedido) REFERENCES Pedido(id_pedido),
@@ -120,6 +121,7 @@ CREATE TABLE IF NOT EXISTS Oferta (
 CREATE TABLE IF NOT EXISTS DetalleOfertaProducto (
     id_detalleOfertaProducto INT PRIMARY KEY,
     descripcion VARCHAR(255),
+    cantidad INT,
     id_oferta INT,
     id_producto INT,
     CONSTRAINT fk_oferta_detalle FOREIGN KEY (id_oferta) REFERENCES Oferta(id_oferta),
