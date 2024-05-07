@@ -76,7 +76,7 @@ WSGI_APPLICATION = 'config.wsgi.application'
 DATABASES = {
     "default": {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'Caso9',
+        'NAME': 'PRONTAENTREGADB',
         'USER': 'itsv',
         'PASSWORD': 'itsvpassword',
         'HOST': 'pe-db',
