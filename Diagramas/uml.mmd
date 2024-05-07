@@ -1,0 +1,75 @@
+erDiagram
+
+Usuario{
+    int id_usuario PK
+    varchar nombre
+    varchar apellido
+    varchar dni
+    varchar telefono
+    varchar email
+}
+TipoUsuario{
+    int id_tipoUsuario PK
+    varchar nombre
+    varchar descripcion
+}
+Casa{
+    int id_casa PK
+    varchar nombre
+    varchar descripcion
+    int id_usuario FK
+}
+DetalleCasaUsuario{
+    int id_detalleCasaUsuario PK
+    varchar descripcion
+    int id_casa FK
+    int id_usuario FK
+}
+StockProducto{
+    int id_stockProducto PK
+    int id_producto FK
+    int cantidad
+}
+Producto{
+    int id_producto PK
+    varchar nombre
+    varchar descripcion
+}
+Pedido{
+    int id_pedido PK
+    date fecha
+    int id_casa FK
+    int id_producto FK
+}
+Oferta{
+    int id_oferta PK
+    date fecha
+    int id_usuario FK
+    int id_casa FK
+    int id_producto FK
+}
+
+Transporte{
+    int id_transporte PK
+    varchar marca
+    varchar modelo
+    varchar patente
+    int kilometraje
+    varchar estadoITV
+    datetime anio
+}
+
+Producto ||--|{ StockProducto : "renta"
+Casa ||--|{ StockProducto : "renta"
+
+TipoUsuario ||--|{ Usuario : "tiene"
+Usuario ||--|{ Pedido : "tiene"
+Usuario ||--|{ Oferta : "tiene"
+
+Producto ||--|{ Pedido : "renta"
+Producto ||--|{ Oferta : "renta"
+
+Casa ||--|{ StockProducto : "renta"
+Casa ||--|{ StockProducto : "renta"
+Casa ||--|{ DetalleCasaUsuario : "tiene"
+Usuario ||--|{ DetalleCasaUsuario : "renta"
