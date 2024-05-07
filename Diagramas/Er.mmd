@@ -58,12 +58,14 @@ Oferta{
 DetallePedidoProducto{
     int id_detallePedidoProducto PK
     varchar descripcion
+    int cantidad
     int id_pedido FK
     int id_producto FK
 }
 DetalleOfertaProducto{
     int id_detalleOfertaProducto PK
     varchar descripcion
+    int cantidad
     int id_oferta FK
     int id_producto FK
 }
