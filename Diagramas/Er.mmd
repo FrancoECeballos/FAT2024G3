@@ -87,6 +87,14 @@ TipoUsuario ||--|{ Usuario : "tiene"
 Usuario ||--|{ Pedido : "tiene"
 Usuario ||--|{ Oferta : "tiene"
 
+Casa ||--|{ Pedido : "tiene"
+Casa ||--|{ Oferta : "tiene"
+Casa ||--|{ StockProducto : "tiene"
+Casa ||--|{ StockProducto : "tiene"
+
+Casa ||--|{ DetalleCasaUsuario : "tiene"
+Usuario ||--|{ DetalleCasaUsuario : "tiene"
+
 Pedido ||--|{ DetallePedidoProducto : "tiene"
 Oferta ||--|{ DetalleOfertaProducto : "tiene"
 Producto ||--|{ DetallePedidoProducto : "tiene"
@@ -95,11 +103,3 @@ Producto ||--|{ DetalleOfertaProducto : "tiene"
 CategoriaProducto ||--|{ Producto : "tiene"
 
 Producto ||--|{ StockProducto : "tiene"
-
-Casa ||--|{ Pedido : "tiene"
-Casa ||--|{ Oferta : "tiene"
-Casa ||--|{ StockProducto : "tiene"
-Casa ||--|{ StockProducto : "tiene"
-
-Casa ||--|{ DetalleCasaUsuario : "tiene"
-Usuario ||--|{ DetalleCasaUsuario : "tiene"
