@@ -3,7 +3,6 @@ erDiagram
 Organizacion{
     int id_Organizacion PK
     varchar descripcion
-    int id_casa FK
 }
 Usuario{
     int id_usuario PK
@@ -22,6 +21,7 @@ Casa{
     int id_casa PK
     varchar nombre
     varchar descripcion
+    int id_Organizacion FK
     int id_usuario FK
 }
 DetalleCasaUsuario{
