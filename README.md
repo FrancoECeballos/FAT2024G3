@@ -19,7 +19,7 @@ El objetivo principal de este proyecto es proporcionar a Manos Abiertas una herr
 
 ### Tecnologías Utilizadas
 - **Lenguaje de Programación:** Se utilizará Python para el desarrollo del backend.
-- **Framework:** Flask será utilizado para construir la aplicación web.
+- **Framework:** Django será utilizado para construir la aplicación web.
 - **Base de Datos:** Se empleará SQLite para almacenar la información del stock y los mensajes.
 - **Frontend:** HTML, CSS y JavaScript para la interfaz de usuario.
 - **Herramientas de Control de Versiones:** Git y GitHub para el control de versiones y colaboración.
