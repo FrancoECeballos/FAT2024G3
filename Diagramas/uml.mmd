@@ -59,17 +59,17 @@ Transporte{
     datetime anio
 }
 
-Producto ||--|{ StockProducto : "renta"
-Casa ||--|{ StockProducto : "renta"
+Producto ||--|{ StockProducto : "tiene"
+Casa ||--|{ StockProducto : "tiene"
 
 TipoUsuario ||--|{ Usuario : "tiene"
 Usuario ||--|{ Pedido : "tiene"
 Usuario ||--|{ Oferta : "tiene"
 
-Producto ||--|{ Pedido : "renta"
-Producto ||--|{ Oferta : "renta"
+Producto ||--|{ Pedido : "tiene"
+Producto ||--|{ Oferta : "tiene"
 
-Casa ||--|{ StockProducto : "renta"
-Casa ||--|{ StockProducto : "renta"
+Casa ||--|{ StockProducto : "tiene"
+Casa ||--|{ StockProducto : "tiene"
 Casa ||--|{ DetalleCasaUsuario : "tiene"
-Usuario ||--|{ DetalleCasaUsuario : "renta"
+Usuario ||--|{ DetalleCasaUsuario : "tiene"
