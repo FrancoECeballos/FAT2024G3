@@ -49,13 +49,25 @@ Pedido{
     int id_pedido PK
     date fecha
     int id_casa FK
-    int id_producto FK
+    int id_detallePedidoProducto FK
 }
 Oferta{
     int id_oferta PK
     date fecha
     int id_usuario FK
     int id_casa FK
+    int id_detalleOfertaProducto FK
+}
+DetallePedidoProducto{
+    int id_detallePedidoProducto PK
+    varchar descripcion
+    int id_pedido FK
+    int id_producto FK
+}
+DetalleOfertaProducto{
+    int id_detalleOfertaProducto PK
+    varchar descripcion
+    int id_oferta FK
     int id_producto FK
 }
 
@@ -78,9 +90,13 @@ TipoUsuario ||--|{ Usuario : "tiene"
 Usuario ||--|{ Pedido : "tiene"
 Usuario ||--|{ Oferta : "tiene"
 
+Pedido ||--|{ DetallePedidoProducto : "tiene"
+Oferta ||--|{ DetalleOfertaProducto : "tiene"
+Producto ||--|{ DetallePedidoProducto : "tiene"
+Producto ||--|{ DetalleOfertaProducto : "tiene"
+
 CategoriaProducto ||--|{ Producto : "tiene"
-Producto ||--|{ Pedido : "tiene"
-Producto ||--|{ Oferta : "tiene"
+
 Producto ||--|{ StockProducto : "tiene"
 
 Casa ||--|{ StockProducto : "tiene"
