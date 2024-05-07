@@ -1,0 +1,51 @@
+version: '3.8'
+
+services:
+  pe-django:
+    image: django
+    command: python manage.py runserver 0.0.0.0:8000
+    build: .
+    ports:
+      - '8000:8000'
+    volumes:
+      - ./ProntaEntrega:/app
+    environment:
+      PMA_PASSWORD: 'itsvpassword'
+      PMA_ARBITRARY: 1
+      container_name: 'ProntaEntrega-django'
+    depends_on:
+      - pe-db
+    networks:
+      - itsv
+
+  pe-db:
+    image: mysql
+    environment:
+      MYSQL_DATABASE: 'Caso9'
+      MYSQL_USER: 'itsv'
+      MYSQL_PASSWORD: 'itsvpassword'
+      MYSQL_ROOT_PASSWORD: 'itsvpassword'
+      container_name: 'ProntaEntrega-mysql'
+    ports:
+         - "40:40"
+    volumes:
+      - ./ProntaEntrega/dbdata:/var/lib/mysql
+    networks:
+      itsv:
+        aliases:
+          - mysql
+
+  pe-phpmyadmin:
+    image: phpmyadmin
+    environment:
+      PMA_PASSWORD: 'itsvpassword'
+      PMA_ARBITRARY: 1
+      container_name: 'ProntaEntrega-phpmyadmin'
+    ports:
+      - "8080:80"
+    networks:
+      - itsv
+
+networks:
+  itsv:
+    driver: bridge
