@@ -80,7 +80,7 @@ DATABASES = {
         'USER': 'itsv',
         'PASSWORD': 'itsvpassword',
         'HOST': 'pe-db',
-        'PORT': '3307',
+        'PORT': '3306',
     }
 }
 
