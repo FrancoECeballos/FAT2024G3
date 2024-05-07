@@ -1,5 +1,10 @@
 erDiagram
 
+Organizacion{
+    int id_Organizacion PK
+    varchar descripcion
+    int id_casa FK
+}
 Usuario{
     int id_usuario PK
     varchar nombre
@@ -30,6 +35,11 @@ StockProducto{
     int id_producto FK
     int cantidad
 }
+CategoriaProducto{
+    int id_categoriaProducto
+    varchar nombre
+    varchar descripcion
+}
 Producto{
     int id_producto PK
     varchar nombre
@@ -57,17 +67,21 @@ Transporte{
     int kilometraje
     varchar estadoITV
     datetime anio
+    id_Organizacion FK
 }
 
-Producto ||--|{ StockProducto : "tiene"
+Organizacion ||--|{ Casa : "tiene"
+Organizacion ||--|{ Transporte : "tiene"
 Casa ||--|{ StockProducto : "tiene"
 
 TipoUsuario ||--|{ Usuario : "tiene"
 Usuario ||--|{ Pedido : "tiene"
 Usuario ||--|{ Oferta : "tiene"
 
+CategoriaProducto ||--|{ Producto : "tiene"
 Producto ||--|{ Pedido : "tiene"
 Producto ||--|{ Oferta : "tiene"
+Producto ||--|{ StockProducto : "tiene"
 
 Casa ||--|{ StockProducto : "tiene"
 Casa ||--|{ StockProducto : "tiene"
