@@ -1,6 +1,6 @@
 !/bin/sh
 
-sleep 10
+sleep 5
 
 python manage.py migrate
 python manage.py collectstatic --noinput
