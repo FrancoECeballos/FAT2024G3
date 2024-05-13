@@ -1,6 +1,25 @@
 version: '3.8'
 
 services:
+  pe-django:
+    image: django:5.0.3
+    command: >
+      sh -c 'sleep 3 &&
+      python manage.py migrate &&
+      python manage.py collectstatic --noinput &&
+      python manage.py runserver 0.0.0.0:8000'
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - '8000:8000'
+    volumes:
+      - .:/app
+    depends_on:
+      - pe-db
+    networks:
+      - itsv
+
   pe-db:
     image: mysql
     environment:
@@ -20,18 +39,6 @@ services:
       PMA_ARBITRARY: 1
     ports:
       - "8080:80"
-    networks:
-      - itsv
-
-  pe-django:
-    image: django:5.0.3
-    build: .
-    ports:
-      - '8000:8000'
-    volumes:
-      - .:/app
-    depends_on:
-      - pe-db
     networks:
       - itsv
 
