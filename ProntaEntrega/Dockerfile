@@ -12,6 +12,6 @@ EXPOSE 8000
 
 RUN python manage.py collectstatic --noinput
 
-#CMD ["python","manage.py","runserver","0.0.0.0:8000"]
+#CMD ["sleep", "5","python","manage.py","runserver","0.0.0.0:8000"]
 
-ENTRYPOINT ["sh", "entrypoint.sh"]
+ENTRYPOINT ["sh","entrypoint.sh"]

@@ -8,22 +8,16 @@ services:
       MYSQL_USER: 'itsv'
       MYSQL_PASSWORD: 'itsvpassword'
       MYSQL_ROOT_PASSWORD: 'itsvpassword'
-      container_name: 'ProntaEntrega-mysql'
-    ports:
-         - "3307:3307"
     volumes:
       - ./dbdata:/var/lib/mysql
     networks:
-      itsv:
-        aliases:
-          - mysql
+      - itsv
 
   pe-phpmyadmin:
     image: phpmyadmin
     environment:
       PMA_PASSWORD: 'itsvpassword'
       PMA_ARBITRARY: 1
-      container_name: 'ProntaEntrega-phpmyadmin'
     ports:
       - "8080:80"
     networks:
@@ -32,7 +26,6 @@ services:
   pe-django:
     image: django:5.0.3
     build: .
-    container_name: 'pe-django'
     ports:
       - '8000:8000'
     volumes:

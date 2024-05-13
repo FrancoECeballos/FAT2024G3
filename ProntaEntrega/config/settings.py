@@ -81,7 +81,7 @@ DATABASES = {
         'USER': 'itsv',
         'PASSWORD': 'itsvpassword',
         'HOST': 'pe-db',
-        'PORT': '3307',
+        'PORT': '3306',
     }
 }
 
@@ -122,9 +122,6 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATIC_ROOT = '/'
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'ProntaEntregaReact/build/static')
-]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
