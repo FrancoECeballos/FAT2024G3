@@ -1,5 +1,4 @@
 erDiagram
-
     Direccion{
         int id_direccion PK
         varchar calle
@@ -9,7 +8,6 @@ erDiagram
     Organizacion{
         int id_Organizacion PK
         varchar descripcion
-        int id_direccion FK
     }
     TipoUsuario{
         int id_tipoUsuario PK
@@ -31,6 +29,7 @@ erDiagram
         varchar nombre
         varchar descripcion
         int id_Organizacion FK
+        int id_direccion FK
     }
     DetalleCasaUsuario{
         int id_detalleCasaUsuario PK
@@ -38,10 +37,10 @@ erDiagram
         int id_casa FK
         int id_usuario FK
     }
-    StockProducto{
-        int id_stockProducto PK
-        int id_producto FK
-        int cantidad
+    UnidadMedida{
+        int id_unidadMedida PK
+        varchar nombre
+        varchar descripcion
     }
     CategoriaProducto{
         int id_categoriaProducto
@@ -52,17 +51,21 @@ erDiagram
         int id_producto PK
         varchar nombre
         varchar descripcion
+        int id_categoriaProducto PK
+        int id_unidadMedida PK
+    }
+    StockProducto{
+        int id_stockProducto PK
+        int id_producto FK
+        int cantidad
+        int id_casa FK
     }
     Pedido{
         int id_pedido PK
         date fecha
+        time hora
         int id_casa FK
-    }
-    Oferta{
-        int id_oferta PK
-        date fecha
         int id_usuario FK
-        int id_casa FK
     }
     DetallePedidoProducto{
         int id_detallePedidoProducto PK
@@ -70,6 +73,14 @@ erDiagram
         int cantidad
         int id_pedido FK
         int id_producto FK
+        int id_estadoProductoPedido FK
+    }
+    Oferta{
+        int id_oferta PK
+        date fecha
+        time hora
+        int id_usuario FK
+        int id_casa FK
     }
     DetalleOfertaProducto{
         int id_detalleOfertaProducto PK
@@ -77,14 +88,15 @@ erDiagram
         int cantidad
         int id_oferta FK
         int id_producto FK
+        int id_estadoProductoOferta FK
     }
-    EstadoProductoPedido{
-        int id_estadoProductoPedido PK
+    EstadoPedidoProducto{
+        int id_estadoPedidoProducto PK
         varchar nombre
         varchar descripcion
     }
-    EstadoProductoOferta{
-        int id_estadoProductoOferta PK
+    EstadoOfertaProducto{
+        int id_estadoOfertaProducto PK
         varchar nombre
         varchar descripcion
     }
@@ -119,11 +131,12 @@ Usuario ||--|{ DetalleCasaUsuario : "tiene"
 
 Pedido ||--|{ DetallePedidoProducto : "tiene"
 Oferta ||--|{ DetalleOfertaProducto : "tiene"
-EstadoProductoPedido ||--|{ DetallePedidoProducto : "tiene"
-EstadoProductoOferta ||--|{ DetalleOfertaProducto : "tiene"
+EstadoPedidoProducto ||--|{ DetallePedidoProducto : "tiene"
+EstadoOfertaProducto ||--|{ DetalleOfertaProducto : "tiene"
 Producto ||--|{ DetallePedidoProducto : "tiene"
 Producto ||--|{ DetalleOfertaProducto : "tiene"
 
 CategoriaProducto ||--|{ Producto : "tiene"
+UnidadMedida ||--|{ Producto : "tiene"
 
 Producto ||--|{ StockProducto : "tiene"
