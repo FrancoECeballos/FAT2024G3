@@ -26,6 +26,8 @@ CREATE TABLE IF NOT EXISTS Usuario (
     id_usuario INT AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(255),
     apellido VARCHAR(255),
+    nombreUsuario VARCHAR(255),
+    contrasenia INT,
     dni VARCHAR(20),
     telefono VARCHAR(20),
     email VARCHAR(255),
@@ -179,10 +181,10 @@ INSERT INTO TipoUsuario (nombre, descripcion) VALUES
     ('SuperUser', 'Es el superadmin');
 
 -- Inserciones para la tabla Usuario
-INSERT INTO Usuario (nombre, apellido, dni, telefono, email, id_direccion, id_tipoUsuario) VALUES 
-    ('Joaquin', 'Lopez', '12345678A', '25129735', 'JoaquinL@hotmail.com', 1, 3),
-    ('Timoteo', 'Wuewuan', '98765432B', '46505926', 'TimoteoW@gmail.com.com', 3, 2),
-    ('Teresa', 'Diaz', '56789123C', '36007395', 'TereDiaz@gmail.com', 4, 1);
+INSERT INTO Usuario (nombre, apellido, contrasenia, nombreUsuario, dni, telefono, email, id_direccion, id_tipoUsuario) VALUES 
+    ('Joaquin', 'Lopez', 'Pa$$word', 'JoaLopez', '12345678A', '25129735', 'JoaquinL@hotmail.com', 1, 3),
+    ('Timoteo', 'Wuewuan', 'QwerTY', 'TimoelWawan','98765432B', '46505926', 'TimoteoW@gmail.com.com', 3, 2),
+    ('Teresa', 'Diaz', '12435687', 'TeresitaD','56789123C', '36007395', 'TereDiaz@gmail.com', 4, 1);
 
 -- Inserciones para la tabla Casa
 INSERT INTO Casa (nombre, descripcion, id_Organizacion, id_direccion) VALUES 

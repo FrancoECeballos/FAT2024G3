@@ -12,3 +12,83 @@ classDiagram
         +getNumero()
         +getLocalidad()
     }
+    class Organizacion {
+        - varchar nombre
+        - Direccion direccion
+        - varchar telefono
+        - varchar email
+
+        +setNombre()
+        +setDireccion()
+        +setTelefono()
+        +setEmail()
+
+        +getNombre()
+        +getDireccion()
+        +getTelefono()
+        +getEmail()
+    }
+    class TipoUsuario {
+        - varchar nombre
+        - varchar descripcion
+
+        +setNombre()
+        +setDescripcion()
+
+        +getNombre()
+        +getDescripcion()
+    }
+    class Usuario {
+        - varchar nombre
+        - varchar apellido
+        - varchar email
+        - varchar nombreUsuario
+        - varchar contrasenia
+        - TipoUsuario tipoUsuario
+        - Direccion direccion
+
+        +setNombre()
+        +setApellido()
+        +setEmail()
+        +setNombreUsuario()
+        +setContrasenia()
+        +setTipoUsuario()
+        +setDireccion()
+
+        +getNombre()
+        +getApellido()
+        +getEmail()
+        +getNombreUsuario()
+        +getContrasenia()
+        +getTipoUsuario()
+        +getDireccion()
+    }
+    class Casa {
+        - varchar nombre
+        - varchar descripcion
+        - Organizacion organizacion
+        - Direccion direccion
+
+        +setNombre()
+        +setDescripcion()
+        +setOrganizacion()
+        +setDireccion()
+
+        +getNombre()
+        +setDescripcion()
+        +getOrganizacion()
+        +getDireccion()
+    }
+    class DetalleCasaUsuario {
+        - Casa casa
+        - Usuario usuario
+        - varchar descripcion
+
+        +setCasa()
+        +setUsuario()
+        +setDescripcion()
+
+        +getCasa()
+        +getUsuario()
+        +getDescripcion()
+    }
