@@ -1,0 +1,55 @@
+classDiagram
+
+class tipo_user{
+    string nombre_tipo
+    string descripcion
+    get_nombre_tipo()
+    set_nombre_tipo()
+    create()
+    update()
+    remove()
+}
+tipo_user <.. user
+
+class user{
+    string nombre
+    tipo_user rol
+    int dni
+    int telefono
+    string email
+    return_tipo()
+}
+
+class casas{
+    string domicilio
+}
+
+class producto{
+    string nombre_producto
+    string descripcion
+    string unidad
+}
+
+class oferta_pedidos{
+    producto producto
+    casas casa
+    int cantidad
+    string urgencia
+}
+oferta_pedidos ..> casas
+oferta_pedidos ..> producto
+
+class transporte{
+    pedidos oferta_pedidos
+    ofertas oferta_pedidos
+    casas origen
+    casas destino
+}
+transporte ..> oferta_pedidos
+transporte ..> casas
+
+class stock{
+    int cantidad_actual
+    producto producto
+}
+stock <.. producto

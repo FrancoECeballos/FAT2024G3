@@ -1,14 +1,20 @@
 erDiagram
 
-    Organizacion{
-        int id_Organizacion PK
-        varchar descripcion
-    }
     Direccion{
         int id_direccion PK
         varchar calle
         int numero
         varchar localidad  
+    }
+    Organizacion{
+        int id_Organizacion PK
+        varchar descripcion
+        int id_direccion FK
+    }
+    TipoUsuario{
+        int id_tipoUsuario PK
+        varchar nombre
+        varchar descripcion
     }
     Usuario{
         int id_usuario PK
@@ -17,11 +23,8 @@ erDiagram
         varchar dni
         varchar telefono
         varchar email
-    }
-    TipoUsuario{
-        int id_tipoUsuario PK
-        varchar nombre
-        varchar descripcion
+        int id_direccion FK
+        int id_tipoUsuario FK
     }
     Casa{
         int id_casa PK
@@ -75,13 +78,13 @@ erDiagram
         int id_oferta FK
         int id_producto FK
     }
-    EstadoPedidoProducto{
-        int id_estadoPedidoProducto PK
+    EstadoProductoPedido{
+        int id_estadoProductoPedido PK
         varchar nombre
         varchar descripcion
     }
-    EstadoPedidoOferta{
-        int id_estadoPedidoOferta PK
+    EstadoProductoOferta{
+        int id_estadoProductoOferta PK
         varchar nombre
         varchar descripcion
     }
@@ -116,8 +119,8 @@ Usuario ||--|{ DetalleCasaUsuario : "tiene"
 
 Pedido ||--|{ DetallePedidoProducto : "tiene"
 Oferta ||--|{ DetalleOfertaProducto : "tiene"
-EstadoPedidoProducto ||--|{ DetallePedidoProducto : "tiene"
-EstadoPedidoOferta ||--|{ DetalleOfertaProducto : "tiene"
+EstadoProductoPedido ||--|{ DetallePedidoProducto : "tiene"
+EstadoProductoOferta ||--|{ DetalleOfertaProducto : "tiene"
 Producto ||--|{ DetallePedidoProducto : "tiene"
 Producto ||--|{ DetalleOfertaProducto : "tiene"
 
